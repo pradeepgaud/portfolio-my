@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
 import Projects from '../../api/project';
 
-const ProjectSection = (props) => {
-    const [open, setOpen] = useState(false);
-    const [state, setState] = useState({});
+const ProjectSection = () => {
     const [number, setCount] = useState(3);
     const [buttonActive, setButtonState] = useState(false);
-
-    const handleClickOpen = (item) => {
-        setOpen(true);
-        setState(item);
-    };
-
-    function handleClose() {
-        setOpen(false);
-    }
 
     return (
         <section className="tp-project-section section-padding" style={{ backgroundColor: '#000', color: '#fff', padding: '60px 0' }}>
@@ -28,15 +17,14 @@ const ProjectSection = (props) => {
                         {Projects.slice(0, number).map((project, pro) => (
                             <div className="col col-xl-4 col-lg-6 col-sm-12 col-12" key={pro} style={{ padding: '15px', maxWidth: '360px' }}>
                                 <div className="tp-project-item" style={{ backgroundColor: '#111', padding: '15px', borderRadius: '5px', border: '1px solid #333' }}>
-                                    <div className="tp-project-img" onClick={() => handleClickOpen(project)} style={{ cursor: 'pointer', marginBottom: '15px' }}>
+                                    <div className="tp-project-img" style={{ marginBottom: '15px' }}>
                                         <img src={project.pImg} alt="" style={{ width: '100%', borderRadius: '5px' }} />
                                     </div>
                                     <div className="tp-project-content" style={{ textAlign: 'center' }}>
                                         <span style={{ color: '#fb923c', fontSize: '14px', fontWeight: '500' }}>{project.subTitle}</span>
-                                        <h2 onClick={() => handleClickOpen(project)} style={{ color: '#fff', fontSize: '18px', fontWeight: '600', margin: '10px 0', cursor: 'pointer' }}>
+                                        <h2 style={{ color: '#fff', fontSize: '18px', fontWeight: '600', margin: '10px 0' }}>
                                             {project.title}
                                         </h2>
-                                        {/* Live Button */}
                                         <a
                                             href={project.liveLink ? project.liveLink : '#'}
                                             target="_blank"

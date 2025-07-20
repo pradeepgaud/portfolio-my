@@ -10,10 +10,7 @@ const Header = (props) => {
         e.preventDefault()
     }
 
-    const ClickHandler = () => {
-        window.scrollTo(10, 0);
-    }
-
+ 
     return (
         <header id="header" className={props.topbarNone}>
             <div className={`tp-site-header ${props.hclass}`}>
